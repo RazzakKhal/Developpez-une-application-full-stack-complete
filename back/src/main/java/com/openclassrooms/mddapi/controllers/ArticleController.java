@@ -11,4 +11,9 @@ public class ArticleController {
     String testMethod(){
         return "On est bon";
     }
+
+    @GetMapping("/test2")
+    String testMethod2(){
+        return "On est bon lol";
+    }
 }
