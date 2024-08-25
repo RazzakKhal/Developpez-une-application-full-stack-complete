@@ -5,9 +5,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { ArticlesComponent } from './pages/articles/articles.component';
+import { ThemesComponent } from './pages/themes/themes.component';
+import { ArticleComponent } from './pages/article/article.component';
+import { CreateArticleComponent } from './pages/create-article/create-article.component';
+import { ThemeComponent } from './shared/components/theme/theme.component';
+import { RegisterFormComponent } from './shared/forms/register-form/register-form.component';
+import { LoginFormComponent } from './shared/forms/login-form/login-form.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, SignUpComponent, SignInComponent, ArticlesComponent, ThemesComponent, ArticleComponent, CreateArticleComponent, ThemeComponent, RegisterFormComponent, LoginFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

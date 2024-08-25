@@ -1,7 +1,20 @@
-.center {
-  height: 100vh;
+.container{
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+  padding-top: 100px;
+}
+
+.logo{
+  width: 70vw;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height : 150px;
 }
