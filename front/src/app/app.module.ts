@@ -14,9 +14,10 @@ import { CreateArticleComponent } from './pages/create-article/create-article.co
 import { ThemeComponent } from './shared/components/theme/theme.component';
 import { RegisterFormComponent } from './shared/forms/register-form/register-form.component';
 import { LoginFormComponent } from './shared/forms/login-form/login-form.component';
+import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SignUpComponent, SignInComponent, ArticlesComponent, ThemesComponent, ArticleComponent, CreateArticleComponent, ThemeComponent, RegisterFormComponent, LoginFormComponent],
+  declarations: [AppComponent, HomeComponent, SignUpComponent, SignInComponent, ArticlesComponent, ThemesComponent, ArticleComponent, CreateArticleComponent, ThemeComponent, RegisterFormComponent, LoginFormComponent, UserComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
