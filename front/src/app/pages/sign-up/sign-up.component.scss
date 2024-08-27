@@ -1,0 +1,22 @@
+.logo{
+  width: 70vw;
+}
+
+.backlogo{
+  width : 40px;
+  align-self: flex-start;
+  margin-left : 30px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  height : 100vh;
+  box-sizing: border-box;
+}
+
+
