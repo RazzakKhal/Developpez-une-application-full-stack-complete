@@ -15,6 +15,10 @@ import { ThemeComponent } from './shared/components/theme/theme.component';
 import { RegisterFormComponent } from './shared/forms/register-form/register-form.component';
 import { LoginFormComponent } from './shared/forms/login-form/login-form.component';
 import { UserComponent } from './pages/user/user.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, SignUpComponent, SignInComponent, ArticlesComponent, ThemesComponent, ArticleComponent, CreateArticleComponent, ThemeComponent, RegisterFormComponent, LoginFormComponent, UserComponent],
@@ -23,6 +27,9 @@ import { UserComponent } from './pages/user/user.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

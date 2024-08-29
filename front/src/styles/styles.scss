@@ -46,3 +46,34 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/////////// VARIABLES CSS //////////////////
+
+:root{
+  --btn-purple : #7763C5;
+}
+
+.submit-button{
+  background-color: var(--btn-purple);
+  color : white;
+  height : 35px;
+  border-radius: 5px;
+  border: 0px solid transparent;
+  width : 120px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Inter';
+}
+
+.error-color{
+  background-color: #d3302f;
+  color : white;
+}
+
+.error-color .mat-simple-snackbar-action{
+  color : white;
+}
+
+.error-text{
+  color : #d3302f;
+}
