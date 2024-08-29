@@ -10,6 +10,7 @@ export class ArticlesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('result', localStorage.getItem('token'))
   }
 
 }

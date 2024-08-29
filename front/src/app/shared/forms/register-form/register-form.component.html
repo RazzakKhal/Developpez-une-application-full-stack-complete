@@ -9,7 +9,10 @@
   </div>
   <div class="field">
     <label for="">Mot de passe</label>
-    <input type="text" formControlName="password">
+    <input type="password" formControlName="password">
+    <span class="error-text" *ngIf="registerForm.get('password')?.errors?.['pattern']">
+      Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.
+    </span>
   </div>
   <button class="submit-button" type="submit">S'inscrire</button>
 </form>
