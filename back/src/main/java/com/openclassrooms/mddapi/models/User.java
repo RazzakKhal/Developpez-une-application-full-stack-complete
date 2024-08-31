@@ -2,6 +2,7 @@ package com.openclassrooms.mddapi.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -23,12 +24,12 @@ public class User implements UserDetails {
 
     private String password;
 
+    @CreationTimestamp
     private Instant createdAt;
 
     @OneToMany(mappedBy = "user")
     private List<Subscription> subscriptions;
     @OneToMany(mappedBy = "user")
-
     private List<Comment> comments;
     @OneToMany(mappedBy = "user")
     private List<Article> articles;

@@ -7,6 +7,8 @@ import org.hibernate.annotations.SourceType;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @Entity
@@ -25,8 +27,11 @@ public class Article {
     @JoinColumn(name="theme_id", nullable = false)
     private Theme theme;
 
+    @OneToMany(mappedBy = "article")
+    private List<Comment> comments;
+
     @CreationTimestamp
-    private Instant created_At;
+    private Instant createdAt;
 
 
 }
