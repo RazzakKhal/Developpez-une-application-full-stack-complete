@@ -16,8 +16,9 @@ import { RegisterFormComponent } from './shared/forms/register-form/register-for
 import { LoginFormComponent } from './shared/forms/login-form/login-form.component';
 import { UserComponent } from './pages/user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

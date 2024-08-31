@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarFailConfiguration, SnackBarMessageEnum } from 'src/app/shared/helpers/material.helper';
+import { GetThemesResponse } from 'src/app/shared/models/responses/GetThemesResponse';
+import { Theme } from 'src/app/shared/models/Theme';
+import { ThemesService } from 'src/app/shared/services/themes.service';
 
 @Component({
   selector: 'app-themes',
@@ -7,9 +12,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThemesComponent implements OnInit {
 
-  constructor() { }
+  themes : Theme[] =[]
+
+  constructor(private themeService : ThemesService, private snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
+    this.getAllThemes()
+  }
+
+  getAllThemes(){
+    this.themeService.getAllThemes().subscribe(
+      {
+        next : (res : GetThemesResponse) => {
+          this.themes = res.themes
+          console.log('les themes', this.themes)
+        },
+        error : () => {
+          snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_THEME)
+
+        }
+      }
+    )
   }
 
 }
