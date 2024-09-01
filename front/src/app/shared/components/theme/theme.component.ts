@@ -5,6 +5,8 @@ import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/User';
 import { Observable } from 'rxjs';
 import { Subscription } from '../../models/Subscription';
+import { SubscriptionCreation } from '../../entities/Subscription';
+import { SubscriptionService } from '../../services/subscription.service';
 
 @Component({
   selector: 'app-theme',
@@ -17,7 +19,7 @@ export class ThemeComponent implements OnInit {
   @Input() user!: User;
 
 
-  constructor(private userService: UserService) { }
+  constructor(private subscriptionService : SubscriptionService) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +30,18 @@ export class ThemeComponent implements OnInit {
 
     const allUserThemesId = this.user.subscriptions.map((sub : Subscription) => sub.theme).map((theme : Theme) => theme.id)
     return allUserThemesId.includes(this.theme.id)
+  }
+
+  onSubscribe(theme : Theme){
+    const subscription = new SubscriptionCreation(this.user.id, theme.id);
+    this.subscriptionService.createSubscription(subscription).subscribe({
+      next : (res) => {console.log('la response', res)},
+      error : () => {}
+    })
+  }
+
+  onUnsubscribe(theme : Theme){
+
   }
 
 }

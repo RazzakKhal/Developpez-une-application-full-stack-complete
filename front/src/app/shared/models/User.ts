@@ -2,20 +2,20 @@ import { Article } from "./Article";
 import { Comment } from "./Comment";
 import { Subscription } from "./Subscription";
 
-export interface User{
- id : number;
+export interface User {
+  id: number;
 
- email : string;
+  email: string;
 
- name : string;
+  name: string;
 
- createdAt : Date;
+  createdAt: Date;
 
-  subscriptions : Subscription[];
+  subscriptions: Subscription[];
 
-  comments : Comment[];
+  comments: Comment[];
 
-  articles : Article[];
+  articles: Article[];
 
 
 

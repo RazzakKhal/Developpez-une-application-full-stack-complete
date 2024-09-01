@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URL } from '../constants';
-import { RegisterForm } from '../models/RegisterForm';
-import { LoginForm } from '../models/LoginForm';
+import { RegisterForm } from '../entities/RegisterForm';
+import { LoginForm } from '../entities/LoginForm';
 import { Observable, take } from 'rxjs';
 import { RegisterResponse } from '../models/responses/RegisterResponse';
 import { LoginResponse } from '../models/responses/LoginResponse';
