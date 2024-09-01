@@ -19,10 +19,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SignUpComponent, SignInComponent, ArticlesComponent, ThemesComponent, ArticleComponent, CreateArticleComponent, ThemeComponent, RegisterFormComponent, LoginFormComponent, UserComponent],
+  declarations: [AppComponent, HomeComponent, SignUpComponent, SignInComponent, ArticlesComponent, ThemesComponent, ArticleComponent, CreateArticleComponent, ThemeComponent, RegisterFormComponent, LoginFormComponent, UserComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

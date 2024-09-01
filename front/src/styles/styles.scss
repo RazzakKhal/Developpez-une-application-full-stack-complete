@@ -51,6 +51,7 @@ table {
 
 :root{
   --btn-purple : #7763C5;
+  --bg-card : #F5F5F5;
 }
 
 .submit-button{
@@ -76,4 +77,16 @@ table {
 
 .error-text{
   color : #d3302f;
+}
+
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--bg-card);
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
