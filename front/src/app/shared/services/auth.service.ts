@@ -37,6 +37,7 @@ export class AuthService {
   }
 
   isAuthenticate(){
+    // penser à ajouter la date de validité du token
     return this.getToken() ? true : false;
   }
 }

@@ -7,7 +7,7 @@ export interface Theme{
 
   description : string;
 
-  subscription : Subscription[];
+  subscriptions : Subscription[];
 
 
 }

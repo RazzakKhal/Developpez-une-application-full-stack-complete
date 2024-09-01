@@ -1,6 +1,6 @@
 <div class="container">
   <div class="themes" *ngFor="let theme of themes">
-    <app-theme [theme]="theme" [user]="user"></app-theme>
+    <app-theme (userChange)="updateUser($event)"  [theme]="theme" [user]="user"></app-theme>
   </div>
 </div>
 

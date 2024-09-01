@@ -48,4 +48,8 @@ export class ThemesComponent implements OnInit {
     }
   }
 
+  updateUser(user : User){
+    this.user = user;
+  }
+
 }
