@@ -11,5 +11,6 @@ export function snackBarFailConfiguration(snackBar : MatSnackBar, message : stri
 export enum SnackBarMessageEnum{
   FAIL_FORMULAIRE = "Formulaire Non Valide",
   FAIL_CONNEXION = "Erreur lors de la tentative de connexion",
-  FAIL_INSCRIPTION = "Erreur lors de la tentavite d'inscription"
+  FAIL_INSCRIPTION = "Erreur lors de la tentavite d'inscription",
+  FAIL_THEME = "Impossible de récupérer les themes",
 }

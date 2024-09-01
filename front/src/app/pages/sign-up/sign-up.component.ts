@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { snackBarFailConfiguration } from 'src/app/shared/helpers/material.helper';
 import { NotConnected } from 'src/app/shared/interfaces/notConnected';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -12,7 +10,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class SignUpComponent implements NotConnected,  OnInit {
 
-  constructor(private authService : AuthService, private router : Router, private snackBar : MatSnackBar) { }
+  constructor(private authService : AuthService, private router : Router) { }
 
   ngOnInit(): void {
     this.redirectToArticles();

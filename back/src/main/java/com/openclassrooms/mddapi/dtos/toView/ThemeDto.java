@@ -1,21 +1,18 @@
-package com.openclassrooms.mddapi.models;
+package com.openclassrooms.mddapi.dtos.toView;
 
+import com.openclassrooms.mddapi.models.Subscription;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.List;
+
 @Data
 @NoArgsConstructor
-@Entity
-public class Theme {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ThemeDto {
     private Long id;
-
     private String name;
-
     private String description;
-    @OneToMany(mappedBy = "theme")
     private List<Subscription> subscriptions;
+
+
 }
