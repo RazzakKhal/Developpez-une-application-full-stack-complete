@@ -1,1 +1,6 @@
-<p>theme works!</p>
+<div class="card">
+  <h2>{{theme.name}} </h2>
+  <p>{{theme.description}} </p>
+  <button *ngIf="!isAnUserTheme()" class="submit-button" (click)="onSubscribe(theme)">S'abonner</button>
+  <button *ngIf="isAnUserTheme()" class="submit-button" (click)="onUnsubscribe(theme)">Se désabonner</button>
+</div>

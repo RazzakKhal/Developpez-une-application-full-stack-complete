@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.transaction.Transactional;
 import java.util.Map;
 import java.util.Optional;
 @Service
@@ -69,7 +70,20 @@ public class AuthServiceImpl implements AuthService{
      * @return
      */
     @Override
+    @Transactional
     public UserDto getMe(Object principal){
-        return userMapper.toDto((User) principal);
+        Optional<User> user = userRepository.findByEmail(((User) principal).getEmail());
+        if(user.isPresent()){
+            User us = user.get();
+            us.getSubscriptions();
+            us.getArticles();
+            us.getComments();
+
+            return userMapper.toDto(us);
+
+        }else{
+            throw new RuntimeException("erf erreur");
+        }
+
     }
 }

@@ -1,5 +1,13 @@
 import { Subscription } from "./Subscription";
 
-export class Theme{
-  constructor(private id : number, private name : string, private description : string, private subscription : Subscription[] = []){}
+export interface Theme{
+   id : number;
+
+  name : string;
+
+  description : string;
+
+  subscriptions : Subscription[];
+
+
 }
