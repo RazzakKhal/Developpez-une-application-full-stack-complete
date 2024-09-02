@@ -21,4 +21,7 @@ public class Theme {
     @OneToMany(mappedBy = "theme")
     @JsonBackReference
     private List<Subscription> subscriptions;
+    @OneToMany(mappedBy = "theme")
+    @JsonBackReference
+    private List<Article> articles;
 }

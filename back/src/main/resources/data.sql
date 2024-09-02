@@ -9,3 +9,7 @@ INSERT INTO Theme (name, description) VALUES
 ('Kotlin', 'A cross-platform, statically typed, general-purpose programming language with type inference, known as an official language for Android development.'),
 ('PHP', 'A popular general-purpose scripting language that is especially suited to web development.'),
 ('Rust', 'A multi-paradigm, systems programming language focused on safety, especially safe concurrency.');
+
+CREATE INDEX idx_article_theme_id ON article(theme_id);
+CREATE INDEX idx_subscription_theme_id ON subscription(theme_id);
+CREATE INDEX idx_subscription_user_id ON subscription(user_id);

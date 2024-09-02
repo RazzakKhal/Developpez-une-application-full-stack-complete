@@ -1,19 +1,31 @@
 package com.openclassrooms.mddapi.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.openclassrooms.mddapi.dtos.fromView.CreateArticleDto;
+import com.openclassrooms.mddapi.dtos.toView.ArticleDto;
+import com.openclassrooms.mddapi.services.ArticleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("article")
+@CrossOrigin
+@RequestMapping("/api/articles")
 public class ArticleController {
+
+    @Autowired
+    ArticleService articleService;
+
     @GetMapping("")
-    String testMethod(){
-        return "On est bon";
+    List<ArticleDto> getAllUsersSubscribedArticles(@PathVariable Long userId){
+
+        return articleService.getAllUsersSubscribedArticles(userId);
     }
 
-    @GetMapping("/test2")
-    String testMethod2(){
-        return "On est bon lol";
+    @PostMapping("/create")
+    ArticleDto createAnArticle(@RequestBody CreateArticleDto createArticle){
+        return articleService.createAnArticle(createArticle);
     }
+
+
 }
