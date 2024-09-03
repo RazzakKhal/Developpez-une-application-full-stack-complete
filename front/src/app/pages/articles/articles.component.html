@@ -1,1 +1,7 @@
-<p>articles works!</p>
+<div class="container">
+  <div class="themes" *ngFor="let article of articles">
+    <app-article [article]="article" [user]="user"></app-article>
+  </div>
+</div>
+
+

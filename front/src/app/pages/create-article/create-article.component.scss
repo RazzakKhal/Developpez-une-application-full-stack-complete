@@ -1,0 +1,51 @@
+
+.backlogo{
+  width : 40px;
+  align-self: flex-start;
+  margin-left : 30px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  min-height : 80vh;
+  box-sizing: border-box;
+}
+
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 50vh;
+}
+
+.field{
+  display : flex;
+  flex-direction: column;
+  line-height: 12px;
+  width: 250px;
+}
+
+input, select{
+  height : 40px;
+  border-radius: 5px;
+  border : 1px solid black;
+}
+
+input, input::placeholder, textarea, textarea::placeholder{
+  font-family: 'Inter';
+  font-size: 16px;
+}
+
+
+.area{
+  height: 120px;
+  border-radius: 5px;
+  border : 1px solid black;
+}
