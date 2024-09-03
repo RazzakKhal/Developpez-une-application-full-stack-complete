@@ -16,7 +16,7 @@ public class ArticleController {
     @Autowired
     ArticleService articleService;
 
-    @GetMapping("")
+    @GetMapping("{userId}")
     List<ArticleDto> getAllUsersSubscribedArticles(@PathVariable Long userId){
 
         return articleService.getAllUsersSubscribedArticles(userId);

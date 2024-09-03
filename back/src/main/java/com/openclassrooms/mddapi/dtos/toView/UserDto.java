@@ -19,6 +19,6 @@ public class UserDto {
     private Instant createdAt;
     private List<Subscription> subscriptions;
     private List<Comment> comments;
-    private List<Article> articles;
+
 
 }

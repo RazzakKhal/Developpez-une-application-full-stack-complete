@@ -13,6 +13,7 @@ public class ArticleDto {
     private Long id;
     private String title;
     private String content;
+    private User user;
     private List<Comment> comments;
     private Instant createdAt;
 }

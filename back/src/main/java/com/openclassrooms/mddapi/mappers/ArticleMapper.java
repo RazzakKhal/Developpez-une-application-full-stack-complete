@@ -31,7 +31,7 @@ public class ArticleMapper {
         articleDto.setContent(article.getContent());
         articleDto.setComments(article.getComments());
         articleDto.setCreatedAt(article.getCreatedAt());
-
+        articleDto.setUser(article.getUser());
 
         return articleDto;
     }
