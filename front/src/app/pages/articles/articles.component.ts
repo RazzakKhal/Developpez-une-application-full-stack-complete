@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Article } from 'src/app/shared/models/Article';
 import { User } from 'src/app/shared/models/User';
 import { ArticleService } from 'src/app/shared/services/article.service';
@@ -15,7 +16,7 @@ export class ArticlesComponent implements OnInit {
   articles : Article[] = []
   user! : User;
 
-  constructor(private articleService : ArticleService, private authService : AuthService, private userService : UserService) { }
+  constructor(private articleService : ArticleService, private authService : AuthService, private userService : UserService, private router : Router) { }
 
   ngOnInit(): void {
     this.getUser()
@@ -37,5 +38,9 @@ export class ArticlesComponent implements OnInit {
       this.getAllArticles()
       })
     }
+  }
+
+  redirectToTheArticle(article : Article){
+    this.router.navigateByUrl(`/articles/${article.id}`)
   }
 }

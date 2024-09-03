@@ -1,0 +1,50 @@
+
+.backlogo{
+  width : 40px;
+  align-self: flex-start;
+}
+
+.author-and-date-theme{
+  display: flex;
+  align-self: start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.theme{
+  align-self: start;
+}
+
+.desktop{
+  display: none;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  min-height : 80vh;
+  box-sizing: border-box;
+}
+
+.arrow-and-title{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+///////////////////// MEDIA QUERIES
+///
+// penser à .mobile {display:none}

@@ -90,3 +90,11 @@ table {
   border-radius: 5px;
   box-sizing: border-box;
 }
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: black; /* Vous pouvez choisir la couleur et l'épaisseur que vous souhaitez */
+  margin: 20px 0; /* Ajouter un espace avant et après */
+  width: 100%;
+}

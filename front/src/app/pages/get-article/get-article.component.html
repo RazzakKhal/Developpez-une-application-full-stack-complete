@@ -1,1 +1,22 @@
-<p>get-article works!</p>
+<div class="container">
+  <div class="arrow-and-title">
+    <img src="/assets/back.png" alt="go_back" class="backlogo" [routerLink]="['/articles']">
+    <h1>{{(article | async)?.title}} </h1>
+  </div>
+
+  <div class="author-and-date-theme">
+    <p>{{(article | async)?.createdAt | date}} </p>
+    <p>{{(article | async)?.user?.name}}</p>
+    <p class="theme desktop">{{(article | async)?.theme?.name}}</p>
+  </div>
+  <p class="theme mobile">{{(article | async)?.theme?.name}}</p>
+  <p>{{(article | async)?.content}}</p>
+  <hr>
+  <div class="comments">
+    <h2>Commentaires</h2>
+    <div *ngFor="let comment of (article | async)?.comments">
+      <p>{{comment.content}}</p>
+      <p>{{comment.user.name}}</p>
+    </div>
+  </div>
+</div>
