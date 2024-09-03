@@ -52,4 +52,18 @@ public class ArticleServiceImpl implements ArticleService{
 
     throw new RuntimeException("theme inexistant");
     }
+
+    @Transactional
+    public ArticleDto getArticleById(Long articleId){
+        Optional<Article> optArticle = articleRepository.findById(articleId);
+
+        if(optArticle.isPresent()){
+            Article article = optArticle.get();
+            article.getComments();
+            article.getTheme();
+            return articleMapper.toDto(article);
+        }
+
+        throw new RuntimeException("Cet article n'existe pas en Bdd");
+    }
 }

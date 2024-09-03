@@ -42,7 +42,6 @@ public class UserMapper {
         userDto.setName(user.getName());
         userDto.setEmail(user.getEmail());
         userDto.setId(user.getId());
-        userDto.setComments(user.getComments());
         userDto.setSubscriptions(user.getSubscriptions());
 
         return userDto;

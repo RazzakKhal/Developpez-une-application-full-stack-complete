@@ -33,6 +33,7 @@ public class User implements UserDetails {
     @JsonManagedReference
     private List<Subscription> subscriptions;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Comment> comments;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonBackReference

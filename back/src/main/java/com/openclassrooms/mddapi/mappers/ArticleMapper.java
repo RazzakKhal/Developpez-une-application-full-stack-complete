@@ -17,6 +17,9 @@ public class ArticleMapper {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    ThemeMapper themeMapper;
+
     public List<ArticleDto> toDto(List<Article> articles){
         List<ArticleDto> articlesDto = new ArrayList<>();
 
@@ -37,6 +40,7 @@ public class ArticleMapper {
         articleDto.setComments(article.getComments());
         articleDto.setCreatedAt(article.getCreatedAt());
         articleDto.setUser(userMapper.toDto(article.getUser()));
+        articleDto.setTheme(themeMapper.toDto(article.getTheme()));
 
         return articleDto;
     }

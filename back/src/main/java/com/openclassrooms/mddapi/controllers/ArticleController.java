@@ -16,7 +16,12 @@ public class ArticleController {
     @Autowired
     ArticleService articleService;
 
-    @GetMapping("{userId}")
+    /**
+     * récupère tous les articles liés à l'utilisateur connecté
+     * @param userId
+     * @return
+     */
+    @GetMapping("/user/{userId}")
     List<ArticleDto> getAllUsersSubscribedArticles(@PathVariable Long userId){
 
         return articleService.getAllUsersSubscribedArticles(userId);
@@ -25,6 +30,17 @@ public class ArticleController {
     @PostMapping("/create")
     ArticleDto createAnArticle(@RequestBody CreateArticleDto createArticle){
         return articleService.createAnArticle(createArticle);
+    }
+
+    /**
+     * récupère un article par son id
+     * @param articleId
+     * @return
+     */
+    @GetMapping("{articleId}")
+    ArticleDto getArticleByID(@PathVariable Long articleId){
+
+        return articleService.getArticleById(articleId);
     }
 
 

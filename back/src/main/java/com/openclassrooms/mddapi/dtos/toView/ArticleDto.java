@@ -12,6 +12,8 @@ public class ArticleDto {
     private String title;
     private String content;
     private UserDto user;
+
+    private ThemeDto theme;
     private List<Comment> comments;
     private Instant createdAt;
 }

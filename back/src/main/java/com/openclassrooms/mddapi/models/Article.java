@@ -31,7 +31,7 @@ public class Article {
     @JsonManagedReference
     private Theme theme;
 
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "article", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Comment> comments;
 
     @CreationTimestamp

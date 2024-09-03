@@ -10,4 +10,6 @@ public interface ArticleService {
     List<ArticleDto> getAllUsersSubscribedArticles(Long userId);
 
     ArticleDto createAnArticle(CreateArticleDto createArticle);
+
+    ArticleDto getArticleById(Long articleId);
 }
