@@ -3,14 +3,19 @@ package com.openclassrooms.mddapi.mappers;
 import com.openclassrooms.mddapi.dtos.toView.ArticleDto;
 import com.openclassrooms.mddapi.models.Article;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Component
 @NoArgsConstructor
 public class ArticleMapper {
+
+    @Autowired
+    UserMapper userMapper;
 
     public List<ArticleDto> toDto(List<Article> articles){
         List<ArticleDto> articlesDto = new ArrayList<>();
@@ -31,7 +36,7 @@ public class ArticleMapper {
         articleDto.setContent(article.getContent());
         articleDto.setComments(article.getComments());
         articleDto.setCreatedAt(article.getCreatedAt());
-        articleDto.setUser(article.getUser());
+        articleDto.setUser(userMapper.toDto(article.getUser()));
 
         return articleDto;
     }
