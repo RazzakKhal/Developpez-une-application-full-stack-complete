@@ -26,7 +26,7 @@ export class ThemeComponent implements OnInit {
 
   isAnUserTheme(){
     const allUserThemesId = this.user?.subscriptions.map((sub : Subscription) => sub.theme).map((theme : Theme) => theme.id)
-    return allUserThemesId.includes(this.theme.id)
+    return allUserThemesId ? allUserThemesId.includes(this.theme.id) : false;
   }
 
   onSubscribe(theme : Theme){

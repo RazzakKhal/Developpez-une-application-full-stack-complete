@@ -30,7 +30,6 @@ export class ThemesComponent implements OnInit {
       {
         next : (res : GetThemesResponse) => {
           this.themes = res.themes
-          console.log('les themes', this.themes)
         },
         error : () => {
           snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_THEME)

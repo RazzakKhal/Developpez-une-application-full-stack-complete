@@ -1,0 +1,44 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  min-height : 80vh;
+  box-sizing: border-box;
+}
+
+.profil-utilisateur{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 40vh;
+}
+
+.field{
+  display : flex;
+  flex-direction: column;
+  line-height: 12px;
+  width: 250px;
+}
+
+input{
+  height : 40px;
+  border-radius: 5px;
+  border : 1px solid black;
+}
+
+input, input::placeholder{
+  font-family: 'Inter';
+  font-size: 16px;
+}

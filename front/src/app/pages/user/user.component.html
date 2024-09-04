@@ -1,1 +1,24 @@
-<p>user works!</p>
+<div class="container">
+  <div class="profil-utilisateur">
+    <h1>Profil utilisateur</h1>
+    <form [formGroup]="updateProfilForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <input type="text" formControlName="name" [placeholder]="(user$ | async)?.name">
+      </div>
+      <div class="field">
+        <input type="email" formControlName="email" [placeholder]="(user$ | async)?.email">
+      </div>
+      <div class="field">
+        <input type="password" formControlName="password" placeholder="Nouveau Mot de passe">
+      </div>
+      <button class="submit-button" type="submit">Sauvegarder</button>
+    </form>
+    <p class="error-text" (click)="signOut()">Se déconnecter</p>
+  </div>
+
+  <hr>
+
+  <div class="themes">
+    <app-themes></app-themes>
+  </div>
+</div>
