@@ -14,6 +14,6 @@ public class ArticleDto {
     private UserDto user;
 
     private ThemeDto theme;
-    private List<Comment> comments;
+    private List<CommentDto> comments;
     private Instant createdAt;
 }

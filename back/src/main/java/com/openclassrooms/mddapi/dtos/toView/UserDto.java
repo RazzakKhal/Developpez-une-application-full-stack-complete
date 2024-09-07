@@ -18,7 +18,6 @@ public class UserDto {
     private String email;
     private Instant createdAt;
     private List<Subscription> subscriptions;
-    private List<Comment> comments;
 
 
 }
