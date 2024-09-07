@@ -8,6 +8,7 @@
   display: flex;
   align-self: start;
   justify-content: space-between;
+  width: 100%;
   gap: 10px;
 }
 
@@ -38,12 +39,39 @@
 }
 
 
+.comments{
+  display : flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 100%;
+}
 
+.comments div{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 
+.comments div .username{
+  align-self: flex-end;
+}
 
+textarea{
+  height: 110px;
+  border-radius:10px;
+}
 
+textarea::placeholder{
+  font-size: 20px;
+}
 
-
+.send{
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
 
 ///////////////////// MEDIA QUERIES
 ///

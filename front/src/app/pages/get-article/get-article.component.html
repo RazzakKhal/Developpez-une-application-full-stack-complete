@@ -1,22 +1,26 @@
 <div class="container">
   <div class="arrow-and-title">
     <img src="/assets/back.png" alt="go_back" class="backlogo" [routerLink]="['/articles']">
-    <h1>{{(article | async)?.title}} </h1>
+    <h1>{{article?.title}} </h1>
   </div>
 
   <div class="author-and-date-theme">
-    <p>{{(article | async)?.createdAt | date}} </p>
-    <p>{{(article | async)?.user?.name}}</p>
-    <p class="theme desktop">{{(article | async)?.theme?.name}}</p>
+    <p>{{article?.createdAt | date}} </p>
+    <p>{{article?.user?.name}}</p>
+    <p class="theme desktop">{{article?.theme?.name}}</p>
   </div>
-  <p class="theme mobile">{{(article | async)?.theme?.name}}</p>
-  <p>{{(article | async)?.content}}</p>
+  <p class="theme mobile">{{article?.theme?.name}}</p>
+  <p>{{article?.content}}</p>
   <hr>
   <div class="comments">
     <h2>Commentaires</h2>
-    <div *ngFor="let comment of (article | async)?.comments">
+    <div *ngFor="let comment of article?.comments">
       <p>{{comment.content}}</p>
-      <p>{{comment.user.name}}</p>
+      <p class="username">{{comment.user.name}}</p>
+    </div>
+    <div>
+      <textarea type="text" placeholder="Ecrivez ici votre commentaire" [(ngModel)]="content"></textarea>
+      <img (click)="addComment()" class="send" src="/assets/fleche_send.png" alt="Envoyer">
     </div>
   </div>
 </div>

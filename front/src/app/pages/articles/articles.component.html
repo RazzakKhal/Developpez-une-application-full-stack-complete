@@ -1,7 +1,7 @@
 <div class="container">
   <button class="submit-button btn-create-article" [routerLink]="['/articles/create']">Créer un article</button>
   <div class="div-tri"><p>Trier par</p><img class="img-arrow-down" src="/assets/arrow-down.png" alt="trier"></div>
-  <div *ngFor="let article of articles">
+  <div class="article" *ngFor="let article of articles">
     <app-article (click)="redirectToTheArticle(article)" [article]="article" [user]="user"></app-article>
   </div>
 </div>
