@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { mergeMap } from 'rxjs';
 import { Article } from 'src/app/shared/models/Article';
 import { User } from 'src/app/shared/models/User';
 import { ArticleService } from 'src/app/shared/services/article.service';
@@ -19,23 +20,21 @@ export class ArticlesComponent implements OnInit {
   constructor(private articleService : ArticleService, private authService : AuthService, private userService : UserService, private router : Router) { }
 
   ngOnInit(): void {
-    this.getUser()
+    this.getUserAndArticles()
 
   }
 
 
-  getAllArticles(){
-    this.articleService.getUserSubscribedArticles(this.user.id).subscribe({
-      next : (item : any) => {this.articles = item; console.log(this.articles)},
-      error : () => {}
-    })
-  }
 
-  getUser() {
+  getUserAndArticles() {
     if (this.authService.isAuthenticate()) {
-    this.userService.getUser().subscribe((user : User) => {
-      this.user = user
-      this.getAllArticles()
+    this.userService.getUser().pipe(
+      mergeMap((item : User) => {
+        this.user = item
+       return this.articleService.getUserSubscribedArticles(this.user.id)
+      })
+    ).subscribe((articles : Article[]) => {
+        this.articles = articles;
       })
     }
   }

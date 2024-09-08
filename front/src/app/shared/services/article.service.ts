@@ -14,7 +14,7 @@ export class ArticleService {
   constructor(private httpClient : HttpClient) { }
 
   getUserSubscribedArticles(userId: number){
-    return this.httpClient.get(`${API_URL}/articles/user/${userId}`).pipe(
+    return this.httpClient.get<Article[]>(`${API_URL}/articles/user/${userId}`).pipe(
       take(1)
     )
   }
