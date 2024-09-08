@@ -21,10 +21,11 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { ArticleComponent } from './shared/components/article/article.component';
 import { GetArticleComponent } from './pages/get-article/get-article.component';
+import { MenuComponent } from './shared/components/menu/menu.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SignUpComponent, SignInComponent, ArticlesComponent, ThemesComponent, ArticleComponent, CreateArticleComponent, ThemeComponent, RegisterFormComponent, LoginFormComponent, UserComponent, HeaderComponent, GetArticleComponent],
+  declarations: [AppComponent, HomeComponent, SignUpComponent, SignInComponent, ArticlesComponent, ThemesComponent, ArticleComponent, CreateArticleComponent, ThemeComponent, RegisterFormComponent, LoginFormComponent, UserComponent, HeaderComponent, GetArticleComponent, MenuComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

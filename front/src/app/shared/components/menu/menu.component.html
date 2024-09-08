@@ -1,0 +1,14 @@
+<div class="container" [ngClass]="{
+  'open' : show
+}">
+  <div>
+    <p><a (click)="menuHidden()" [routerLink]="['/articles']">Articles</a></p>
+    <p><a (click)="menuHidden()" [routerLink]="['/themes']">Thèmes</a></p>
+  </div>
+  <img (click)="menuHidden()" [routerLink]="['/user']" class="profil-logo" src="assets/profil-logo.png" alt="profil">
+</div>
+<div (click)="menuHidden()" [ngClass]="{
+  'open' : show
+}" class="grey-container">
+
+</div>
