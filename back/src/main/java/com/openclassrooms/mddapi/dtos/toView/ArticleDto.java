@@ -1,8 +1,6 @@
 package com.openclassrooms.mddapi.dtos.toView;
 
 import com.openclassrooms.mddapi.models.Comment;
-import com.openclassrooms.mddapi.models.Theme;
-import com.openclassrooms.mddapi.models.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.Instant;
@@ -13,6 +11,9 @@ public class ArticleDto {
     private Long id;
     private String title;
     private String content;
-    private List<Comment> comments;
+    private UserDto user;
+
+    private ThemeDto theme;
+    private List<CommentDto> comments;
     private Instant createdAt;
 }

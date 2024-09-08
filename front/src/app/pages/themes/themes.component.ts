@@ -11,7 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 @Component({
   selector: 'app-themes',
   templateUrl: './themes.component.html',
-  styleUrls: ['./themes.component.scss']
+  styleUrls: ['./themes.component.scss'],
 })
 export class ThemesComponent implements OnInit {
 
@@ -30,7 +30,6 @@ export class ThemesComponent implements OnInit {
       {
         next : (res : GetThemesResponse) => {
           this.themes = res.themes
-          console.log('les themes', this.themes)
         },
         error : () => {
           snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_THEME)

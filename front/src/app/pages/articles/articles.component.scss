@@ -1,0 +1,24 @@
+.container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+}
+
+.btn-create-article{
+  width: 160px;
+}
+
+.img-arrow-down{
+  height : 20px;
+}
+
+.div-tri{
+  display: flex;
+  justify-content: space-between;
+}
+
+.article{
+  width : 100%;
+}

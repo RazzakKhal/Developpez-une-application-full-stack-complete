@@ -1,5 +1,7 @@
 package com.openclassrooms.mddapi.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +17,7 @@ public class Comment {
     private String content;
     @ManyToOne
     @JoinColumn(name="user_id")
+    @JsonManagedReference
     private User user;
     @ManyToOne
     @JoinColumn(name="article_id")

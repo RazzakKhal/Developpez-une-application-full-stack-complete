@@ -7,8 +7,6 @@ export interface Comment{
    content : string;
 
    user : User;
-
-   article : Article;
 }
 
 

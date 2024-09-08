@@ -1,5 +1,6 @@
 package com.openclassrooms.mddapi.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,13 +24,14 @@ public class Article {
     private String content;
     @ManyToOne
     @JoinColumn(name="owner_id",nullable = false)
+    @JsonManagedReference
     private User user;
     @ManyToOne
     @JoinColumn(name="theme_id", nullable = false)
     @JsonManagedReference
     private Theme theme;
 
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "article", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Comment> comments;
 
     @CreationTimestamp

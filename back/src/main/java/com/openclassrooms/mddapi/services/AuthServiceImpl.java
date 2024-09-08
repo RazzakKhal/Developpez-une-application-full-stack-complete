@@ -77,7 +77,6 @@ public class AuthServiceImpl implements AuthService{
             User us = user.get();
             us.getSubscriptions();
             us.getArticles();
-            us.getComments();
 
             return userMapper.toDto(us);
 

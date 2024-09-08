@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Article } from '../../models/Article';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'app-article',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleComponent implements OnInit {
 
+  @Input() article!: Article
+  @Input() user!: User;
+  @Output() articlesChange: EventEmitter<Article[]> = new EventEmitter();
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
+
 
 }

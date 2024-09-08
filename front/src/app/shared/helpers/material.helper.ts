@@ -13,4 +13,5 @@ export enum SnackBarMessageEnum{
   FAIL_CONNEXION = "Erreur lors de la tentative de connexion",
   FAIL_INSCRIPTION = "Erreur lors de la tentavite d'inscription",
   FAIL_THEME = "Impossible de récupérer les themes",
+  FAIL_CREATE_ARTICLE = "Impossible de créer l'article suite à une erreur"
 }
