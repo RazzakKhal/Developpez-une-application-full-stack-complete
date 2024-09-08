@@ -57,7 +57,7 @@ export class ArticlesComponent implements OnInit {
     })
   }
 
-  triDesc(){
+  descSorting(){
     this.sortArticlesByDateDsc(this.articles)
   }
 }
