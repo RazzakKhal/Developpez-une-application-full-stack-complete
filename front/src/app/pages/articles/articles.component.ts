@@ -34,6 +34,8 @@ export class ArticlesComponent implements OnInit {
        return this.articleService.getUserSubscribedArticles(this.user.id)
       })
     ).subscribe((articles : Article[]) => {
+      this.sortArticlesByDateAsc(articles);
+      console.log('articles',articles)
         this.articles = articles;
       })
     }
@@ -41,5 +43,21 @@ export class ArticlesComponent implements OnInit {
 
   redirectToTheArticle(article : Article){
     this.router.navigateByUrl(`/articles/${article.id}`)
+  }
+
+  sortArticlesByDateAsc(articles : Article[]){
+    articles.sort((item : Article, item2 : Article) => {
+      return (new Date(item.createdAt)).getTime() - (new Date(item2.createdAt)).getTime()
+    })
+  }
+
+  sortArticlesByDateDsc(articles : Article[]){
+    articles.sort((item : Article, item2 : Article) => {
+      return (new Date(item2.createdAt)).getTime() - (new Date(item.createdAt)).getTime()
+    })
+  }
+
+  triDesc(){
+    this.sortArticlesByDateDsc(this.articles)
   }
 }
