@@ -1,4 +1,4 @@
-.container{
+.container, .container2{
   height : 12vh;
   display: flex;
   background-color: white;
@@ -7,6 +7,11 @@
   padding: 0px 15px;
   position: sticky;
   top:0px;
+  z-index: 50;
+}
+
+.container2{
+  display: none;
 }
 
 .logo{
@@ -15,4 +20,38 @@
 
 .burger-menu{
   height : 25px;
+}
+
+
+.profil-logo{
+  height : 55px;
+  width: 55px;
+}
+
+@media(min-width : 992px){
+  .container{
+    display: none;
+  }
+
+  .container2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width : 15%;
+    min-width: 350px;
+    font-size: 20px;
+    padding-right: 30px;
+
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
 }

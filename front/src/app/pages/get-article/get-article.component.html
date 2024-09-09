@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="arrow-and-title">
-    <img src="/assets/back.png" alt="go_back" class="backlogo" [routerLink]="['/articles']">
+  <img src="/assets/back.png" alt="go_back" class="backlogo" [routerLink]="['/articles']">
+  <div class="title">
     <h1>{{article?.title}} </h1>
   </div>
 
@@ -10,15 +10,16 @@
     <p class="theme desktop">{{article?.theme?.name}}</p>
   </div>
   <p class="theme mobile">{{article?.theme?.name}}</p>
-  <p>{{article?.content}}</p>
+  <p class="content">{{article?.content}}</p>
   <hr>
   <div class="comments">
     <h2>Commentaires</h2>
-    <div *ngFor="let comment of article?.comments">
-      <p>{{comment.content}}</p>
+    <div class="comment" *ngFor="let comment of article?.comments">
       <p class="username">{{comment.user.name}}</p>
+      <p class="comment-content">{{comment.content}}</p>
+
     </div>
-    <div>
+    <div class="textarea-and-arrow">
       <textarea type="text" placeholder="Ecrivez ici votre commentaire" [(ngModel)]="content"></textarea>
       <img (click)="addComment()" class="send" src="/assets/fleche_send.png" alt="Envoyer">
     </div>

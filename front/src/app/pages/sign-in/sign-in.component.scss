@@ -11,12 +11,38 @@
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 50px;
   padding-bottom: 15px;
   height : 85vh;
   box-sizing: border-box;
 }
 
+h1{
+  font-size : 35px;
+  padding-bottom: 60px;
+}
 
+@media(min-width : 992px){
+  .logo{
+    width: 150px;
+  }
+
+  .divlogo{
+    border: 1px solid black;
+    width: 100vw;
+  }
+  .backlogo{
+    position: absolute;
+    top: 150px;
+    left:20px;
+  }
+
+  .container{
+    padding : 0px;
+  }
+
+  h1{
+    padding-top: 70px;
+  }
+}
