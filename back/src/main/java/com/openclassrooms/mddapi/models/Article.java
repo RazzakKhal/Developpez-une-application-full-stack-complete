@@ -9,6 +9,7 @@ import org.hibernate.annotations.SourceType;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -32,7 +33,7 @@ public class Article {
     private Theme theme;
 
     @OneToMany(mappedBy = "article", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
     @CreationTimestamp
     private Instant createdAt;
