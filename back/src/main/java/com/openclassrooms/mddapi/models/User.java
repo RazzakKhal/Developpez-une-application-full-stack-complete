@@ -31,13 +31,10 @@ public class User implements UserDetails {
     private Instant createdAt;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonManagedReference
     private List<Subscription> subscriptions = new ArrayList<>();;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonBackReference
     private List<Comment> comments = new ArrayList<>();;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonBackReference
     private List<Article> articles = new ArrayList<>();;
 
     @Override

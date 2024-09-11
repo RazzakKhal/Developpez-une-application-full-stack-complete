@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class SubscriptionDto {
+public class CreateSubscriptionDto {
     @NotNull
     Long themeId;
     @NotNull

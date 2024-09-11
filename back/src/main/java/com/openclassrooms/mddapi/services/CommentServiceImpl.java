@@ -10,7 +10,9 @@ import com.openclassrooms.mddapi.repositories.ArticleRepository;
 import com.openclassrooms.mddapi.repositories.CommentRepository;
 import com.openclassrooms.mddapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 @Service
@@ -40,7 +42,6 @@ public class CommentServiceImpl implements CommentService{
 
             return commentMapper.toDto(comment);
         }
-
-        throw new RuntimeException("erreur dans la récuperation de l'article ou du user");
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"erreur dans la récuperation de l'article ou du user");
     }
 }

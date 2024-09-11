@@ -25,11 +25,9 @@ public class Article {
     private String content;
     @ManyToOne
     @JoinColumn(name="owner_id",nullable = false)
-    @JsonManagedReference
     private User user;
     @ManyToOne
     @JoinColumn(name="theme_id", nullable = false)
-    @JsonManagedReference
     private Theme theme;
 
     @OneToMany(mappedBy = "article", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

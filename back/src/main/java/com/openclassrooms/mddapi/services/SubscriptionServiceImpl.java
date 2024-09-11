@@ -1,6 +1,6 @@
 package com.openclassrooms.mddapi.services;
 
-import com.openclassrooms.mddapi.dtos.fromView.SubscriptionDto;
+import com.openclassrooms.mddapi.dtos.fromView.CreateSubscriptionDto;
 import com.openclassrooms.mddapi.dtos.toView.UserDto;
 import com.openclassrooms.mddapi.mappers.UserMapper;
 import com.openclassrooms.mddapi.models.Subscription;
@@ -10,9 +10,13 @@ import com.openclassrooms.mddapi.repositories.SubscriptionRepository;
 import com.openclassrooms.mddapi.repositories.ThemeRepository;
 import com.openclassrooms.mddapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.Optional;
 
@@ -24,13 +28,16 @@ public class SubscriptionServiceImpl implements SubscriptionService{
     @Autowired
     UserRepository userRepository;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @Autowired
     ThemeRepository themeRepository;
     @Autowired
     UserMapper userMapper;
     @Transactional
     @Override
-    public UserDto createSubscription(SubscriptionDto subscriptionDto){
+    public UserDto createSubscription(CreateSubscriptionDto subscriptionDto){
         Optional<User> optUser = userRepository.findById(subscriptionDto.getUserId());
         Optional<Theme> optTheme = themeRepository.findById(subscriptionDto.getThemeId());
 
@@ -48,7 +55,7 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 
            return userMapper.toDto(user);
         }else{
-            throw new RuntimeException("et Mince");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"erreur dans la récuperation du theme ou du user");
         }
     }
 
@@ -63,6 +70,9 @@ public class SubscriptionServiceImpl implements SubscriptionService{
             // si l'utilisateur courant est bien celui connecté alors je supprime sinon je ne supprime pas
             if(((User) authentication.getPrincipal()).getId() == user.getId()){
                 subscriptionRepository.delete(subscription);
+
+                entityManager.flush();
+
                 user.getSubscriptions();
                 user.getComments();
                 user.getArticles();
@@ -71,6 +81,6 @@ public class SubscriptionServiceImpl implements SubscriptionService{
         }
 
 
-        throw new RuntimeException("et Mince");
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"erreur dans la récuperation de la souscription");
     }
 }

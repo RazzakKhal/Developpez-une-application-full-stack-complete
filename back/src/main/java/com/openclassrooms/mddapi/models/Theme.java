@@ -20,9 +20,7 @@ public class Theme {
 
     private String description;
     @OneToMany(mappedBy = "theme")
-    @JsonBackReference
     private List<Subscription> subscriptions = new ArrayList<>();
     @OneToMany(mappedBy = "theme")
-    @JsonBackReference
     private List<Article> articles = new ArrayList<>();
 }
