@@ -37,7 +37,8 @@ export class GetArticleComponent implements OnInit {
     next : (article) => {
       this.article = article
     },
-    error : () => {
+    error : (err) => {
+      console.log(err)
       snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_LOAD_ARTICLE)
 
     }

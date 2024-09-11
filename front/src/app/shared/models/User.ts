@@ -13,9 +13,7 @@ export interface User {
 
   subscriptions: Subscription[];
 
-  comments: Comment[];
 
-  articles: Article[];
 
 
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Theme } from '../../models/Theme';
 import { User } from '../../models/User';
 import { Subscription } from '../../models/Subscription';
@@ -20,6 +20,7 @@ export class ThemeComponent implements OnInit {
 
 
   constructor(private subscriptionService : SubscriptionService, private snackBar : MatSnackBar) { }
+
 
   ngOnInit(): void {
   }
@@ -43,7 +44,7 @@ export class ThemeComponent implements OnInit {
 
   onUnsubscribe(theme : Theme){
     this.subscriptionService.deleteSubscription(this.user.id, theme.id).subscribe({
-      next : (res : User) => {this.userChange.emit(res)},
+      next : (res : User) => {this.userChange.emit(res);},
       error : () => {
         snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_UNSUBSCRIBE)
       }
