@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/subscription")
@@ -16,7 +18,7 @@ public class SubscriptionController {
     SubscriptionService subscriptionService;
 
     @PostMapping("/create")
-    UserDto createTheme(@RequestBody SubscriptionDto subscriptionDto){
+    UserDto createTheme(@Valid @RequestBody SubscriptionDto subscriptionDto){
         return subscriptionService.createSubscription(subscriptionDto);
     }
     @DeleteMapping("/delete/{userId}/{themeId}")

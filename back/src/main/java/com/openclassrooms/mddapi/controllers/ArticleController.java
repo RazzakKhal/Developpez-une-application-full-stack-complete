@@ -6,6 +6,7 @@ import com.openclassrooms.mddapi.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,7 @@ public class ArticleController {
     }
 
     @PostMapping("/create")
-    ArticleDto createAnArticle(@RequestBody CreateArticleDto createArticle){
+    ArticleDto createAnArticle(@Valid @RequestBody CreateArticleDto createArticle){
         return articleService.createAnArticle(createArticle);
     }
 
