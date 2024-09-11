@@ -7,8 +7,10 @@ import com.openclassrooms.mddapi.models.User;
 import com.openclassrooms.mddapi.repositories.UserRepository;
 import com.openclassrooms.mddapi.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.Map;
@@ -44,6 +46,6 @@ public class UserServiceImpl implements UserService{
             return Map.of("token", token);
 
         }
-        throw new RuntimeException("user pas trouvé en bdd");
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"erreur dans la récuperation du user");
     }
 }

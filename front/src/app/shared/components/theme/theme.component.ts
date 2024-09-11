@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Theme } from '../../models/Theme';
 import { User } from '../../models/User';
 import { Subscription } from '../../models/Subscription';
 import { SubscriptionCreation } from '../../entities/Subscription';
 import { SubscriptionService } from '../../services/subscription.service';
+import { snackBarFailConfiguration, SnackBarMessageEnum } from '../../helpers/material.helper';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-theme',
@@ -17,7 +19,8 @@ export class ThemeComponent implements OnInit {
   @Output() userChange: EventEmitter<User> = new EventEmitter();
 
 
-  constructor(private subscriptionService : SubscriptionService) { }
+  constructor(private subscriptionService : SubscriptionService, private snackBar : MatSnackBar) { }
+
 
   ngOnInit(): void {
   }
@@ -33,14 +36,18 @@ export class ThemeComponent implements OnInit {
     const subscription = new SubscriptionCreation(this.user.id, theme.id);
     this.subscriptionService.createSubscription(subscription).subscribe({
       next : (res : User) => {this.userChange.emit(res)},
-      error : () => {}
+      error : () => {
+        snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_SUBSCRIBE)
+      }
     })
   }
 
   onUnsubscribe(theme : Theme){
     this.subscriptionService.deleteSubscription(this.user.id, theme.id).subscribe({
-      next : (res : User) => {this.userChange.emit(res)},
-      error : () => {}
+      next : (res : User) => {this.userChange.emit(res);},
+      error : () => {
+        snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_UNSUBSCRIBE)
+      }
     })
   }
 

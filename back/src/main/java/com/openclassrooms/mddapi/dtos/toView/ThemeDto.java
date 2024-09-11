@@ -12,7 +12,6 @@ public class ThemeDto {
     private Long id;
     private String name;
     private String description;
-    private List<Subscription> subscriptions;
 
 
 }

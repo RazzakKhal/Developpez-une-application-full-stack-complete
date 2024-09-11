@@ -17,7 +17,7 @@ public class UserDto {
     private String name;
     private String email;
     private Instant createdAt;
-    private List<Subscription> subscriptions;
+    private List<SubscriptionDto> subscriptions;
 
 
 }

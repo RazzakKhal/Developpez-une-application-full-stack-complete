@@ -16,10 +16,8 @@ public class Subscription {
     private Long id;
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
-    @JsonBackReference
     private User user;
     @ManyToOne
     @JoinColumn(name="theme_id", nullable = false)
-    @JsonManagedReference
     private Theme theme;
 }

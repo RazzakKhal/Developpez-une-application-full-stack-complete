@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 @Data
 @NoArgsConstructor
@@ -19,9 +20,7 @@ public class Theme {
 
     private String description;
     @OneToMany(mappedBy = "theme")
-    @JsonBackReference
-    private List<Subscription> subscriptions;
+    private List<Subscription> subscriptions = new ArrayList<>();
     @OneToMany(mappedBy = "theme")
-    @JsonBackReference
-    private List<Article> articles;
+    private List<Article> articles = new ArrayList<>();
 }

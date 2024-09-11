@@ -21,11 +21,11 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class CreateArticleComponent implements OnInit {
 
   articleForm!: FormGroup;
-  user! : User;
-  themes : Theme[] =[]
+  user!: User;
+  themes: Theme[] = []
 
 
-  constructor(private formBuilder: FormBuilder, private authService : AuthService, private router : Router, private snackBar : MatSnackBar, private userService : UserService, private articleService : ArticleService, private themeService : ThemesService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private snackBar: MatSnackBar, private userService: UserService, private articleService: ArticleService, private themeService: ThemesService) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -34,7 +34,7 @@ export class CreateArticleComponent implements OnInit {
       title: ['', Validators.required],
       content: ['', [Validators.required]],
       theme: ['', [Validators.required]],
-  });
+    });
   }
 
   onSubmit() {
@@ -42,38 +42,44 @@ export class CreateArticleComponent implements OnInit {
     if (this.articleForm.invalid) {
       snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_FORMULAIRE)
 
-    }else{
+    } else {
       const articleForm = new CreateArticle(this.articleForm.value.title, this.articleForm.value.content, this.articleForm.value.theme, this.user.id);
       this.articleService.createArticle(articleForm).subscribe(
         {
-          next : (res : CreateArticleResponse) => {this.router.navigateByUrl('/articles') },
-          error : () => {snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_CREATE_ARTICLE);}
+          next: (res: CreateArticleResponse) => { this.router.navigateByUrl('/articles') },
+          error: () => { snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_CREATE_ARTICLE); }
         })
     }
 
 
-}
-
-getUser() {
-  if (this.authService.isAuthenticate()) {
-  this.userService.getUser().subscribe((user : User) => {
-    this.user = user
-    })
   }
-}
 
-getAllThemes(){
-  this.themeService.getAllThemes().subscribe(
-    {
-      next : (res : GetThemesResponse) => {
-        this.themes = res.themes
-      },
-      error : () => {
-        snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_THEME)
+  getUser() {
+    if (this.authService.isAuthenticate()) {
+      this.userService.getUser().subscribe({
+        next: (user: User) => {
+          this.user = user
+        },
+        error: () => {
+          snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_GET_USER)
 
-      }
+        }
+      })
     }
-  )
-}
+  }
+
+  getAllThemes() {
+    this.themeService.getAllThemes().subscribe(
+      {
+        next: (res: GetThemesResponse) => {
+          this.themes = res.themes
+        },
+        error: () => {
+          snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_THEME)
+
+        }
+      }
+    )
+  }
 
 }

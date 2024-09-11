@@ -6,6 +6,7 @@ import { LoginForm } from '../entities/LoginForm';
 import { Observable, take } from 'rxjs';
 import { RegisterResponse } from '../models/responses/RegisterResponse';
 import { LoginResponse } from '../models/responses/LoginResponse';
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,15 @@ export class AuthService {
 
   isAuthenticate(){
     // penser à ajouter la date de validité du token
-    return this.getToken() ? true : false;
+    if(this.getToken()){
+      const decoded = jwtDecode(this.getToken() as string)
+      if(decoded.exp as number > (new Date().getTime())){
+        localStorage.removeItem('token')
+        return false;
+      }
+      return true;
+    }
+    return false;
+
   }
 }

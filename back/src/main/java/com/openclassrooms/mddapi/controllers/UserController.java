@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 @CrossOrigin
@@ -19,7 +20,7 @@ public class UserController {
     UserService userService;
 
     @PutMapping("")
-    Map<String,String> updateAnUser(Authentication authentication, @RequestBody RegisterUserDto updateUserDto){
+    Map<String,String> updateAnUser(Authentication authentication,@Valid @RequestBody RegisterUserDto updateUserDto){
         return userService.updateAnUser((User) authentication.getPrincipal(), updateUserDto);
     }
 }

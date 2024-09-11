@@ -41,9 +41,15 @@ export class ThemesComponent implements OnInit {
 
   getUser() {
     if (this.authService.isAuthenticate()) {
-    this.userService.getUser().subscribe((user : User) => {
-      this.user = user
-      })
+    this.userService.getUser().subscribe({
+      next: (user: User) => {
+        this.user = user
+      },
+      error: () => {
+        snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_GET_USER)
+
+      }
+    })
     }
   }
 

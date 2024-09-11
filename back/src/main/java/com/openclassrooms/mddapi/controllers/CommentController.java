@@ -6,6 +6,8 @@ import com.openclassrooms.mddapi.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/api/comments")
@@ -14,7 +16,7 @@ public class CommentController {
     CommentService commentService;
 
     @PostMapping("create")
-   CommentDto postComment(@RequestBody CreateCommentDto createCommentDto){
+   CommentDto postComment(@Valid @RequestBody CreateCommentDto createCommentDto){
     return commentService.postComment(createCommentDto);
     }
 }

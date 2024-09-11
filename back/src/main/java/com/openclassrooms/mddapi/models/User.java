@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 @Data
@@ -30,14 +31,11 @@ public class User implements UserDetails {
     private Instant createdAt;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonManagedReference
-    private List<Subscription> subscriptions;
+    private List<Subscription> subscriptions = new ArrayList<>();;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonBackReference
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonBackReference
-    private List<Article> articles;
+    private List<Article> articles = new ArrayList<>();;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

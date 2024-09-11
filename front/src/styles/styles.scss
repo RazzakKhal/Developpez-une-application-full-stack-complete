@@ -71,6 +71,11 @@ table {
   color : white;
 }
 
+.success-color{
+  background-color: #4bb545;
+  color : white;
+}
+
 .error-color .mat-simple-snackbar-action{
   color : white;
 }
@@ -97,4 +102,10 @@ hr {
   background-color: black; /* Vous pouvez choisir la couleur et l'épaisseur que vous souhaitez */
   margin: 20px 0; /* Ajouter un espace avant et après */
   width: 100%;
+}
+
+.bigger{
+  font-size : 20px;
+  width : 140px;
+  height : 40px;
 }

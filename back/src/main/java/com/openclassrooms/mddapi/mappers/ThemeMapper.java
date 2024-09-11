@@ -29,7 +29,6 @@ public class ThemeMapper {
         themeDto.setId(theme.getId());
         themeDto.setName(theme.getName());
         themeDto.setDescription(theme.getDescription());
-        themeDto.setSubscriptions(theme.getSubscriptions());
 
         return themeDto;
     }

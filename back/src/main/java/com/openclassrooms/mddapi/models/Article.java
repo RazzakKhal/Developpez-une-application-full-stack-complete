@@ -9,6 +9,7 @@ import org.hibernate.annotations.SourceType;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,19 +21,17 @@ public class Article {
     private Long id;
 
     private String title;
-
+    @Column(columnDefinition = "TEXT")
     private String content;
     @ManyToOne
     @JoinColumn(name="owner_id",nullable = false)
-    @JsonManagedReference
     private User user;
     @ManyToOne
     @JoinColumn(name="theme_id", nullable = false)
-    @JsonManagedReference
     private Theme theme;
 
     @OneToMany(mappedBy = "article", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
     @CreationTimestamp
     private Instant createdAt;

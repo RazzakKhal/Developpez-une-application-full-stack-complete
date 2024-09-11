@@ -4,11 +4,14 @@ import com.openclassrooms.mddapi.dtos.fromView.LoginUserDto;
 import com.openclassrooms.mddapi.dtos.fromView.RegisterUserDto;
 import com.openclassrooms.mddapi.dtos.toView.UserDto;
 import com.openclassrooms.mddapi.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
 
+    @Autowired
+    SubscriptionMapper subscriptionMapper;
     public User toEntity(RegisterUserDto registerUserDto){
         if(registerUserDto == null){
             return null;
@@ -42,7 +45,7 @@ public class UserMapper {
         userDto.setName(user.getName());
         userDto.setEmail(user.getEmail());
         userDto.setId(user.getId());
-        userDto.setSubscriptions(user.getSubscriptions());
+        userDto.setSubscriptions(subscriptionMapper.toDto(user.getSubscriptions()));
 
         return userDto;
     }

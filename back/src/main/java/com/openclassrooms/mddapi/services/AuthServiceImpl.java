@@ -81,7 +81,7 @@ public class AuthServiceImpl implements AuthService{
             return userMapper.toDto(us);
 
         }else{
-            throw new RuntimeException("erf erreur");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"l'utilisateur ne semble pas exister en BDD");
         }
 
     }

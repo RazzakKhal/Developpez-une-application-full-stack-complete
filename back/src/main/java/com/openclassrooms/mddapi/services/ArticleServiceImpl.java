@@ -10,7 +10,9 @@ import com.openclassrooms.mddapi.repositories.ArticleRepository;
 import com.openclassrooms.mddapi.repositories.ThemeRepository;
 import com.openclassrooms.mddapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -50,7 +52,7 @@ public class ArticleServiceImpl implements ArticleService{
             return articleMapper.toDto(article);
         }
 
-    throw new RuntimeException("theme inexistant");
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Theme ou utilisateur non trouvé en BDD");
     }
 
     @Transactional
@@ -64,6 +66,6 @@ public class ArticleServiceImpl implements ArticleService{
             return articleMapper.toDto(article);
         }
 
-        throw new RuntimeException("Cet article n'existe pas en Bdd");
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Cet article n'existe pas en BDD");
     }
 }

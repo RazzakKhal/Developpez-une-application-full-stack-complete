@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { snackBarFailConfiguration, SnackBarMessageEnum } from 'src/app/shared/helpers/material.helper';
+import { snackBarFailConfiguration, SnackBarMessageEnum, snackBarSuccessConfiguration } from 'src/app/shared/helpers/material.helper';
 import { LoginResponse } from 'src/app/shared/models/responses/LoginResponse';
 import { UpdateUserForm } from 'src/app/shared/models/UpdateUserForm';
 import { User } from 'src/app/shared/models/User';
@@ -45,7 +45,8 @@ export class UserComponent implements OnInit {
     if(this.updateProfilForm.valid){
       const updateForm = new UpdateUserForm(this.updateProfilForm.value.name, this.updateProfilForm.value.email, this.updateProfilForm.value.password)
       this.userService.updateUser(updateForm).subscribe({
-        next : (item : LoginResponse) => {this.changeToken(item)}
+        next : (item : LoginResponse) => {this.changeToken(item); snackBarSuccessConfiguration(this.snackBar, SnackBarMessageEnum.SUCCESS_USER)},
+        error : () => {snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_UPDATE_USER)}
       })
     }else{
       snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_FORMULAIRE)

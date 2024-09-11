@@ -8,12 +8,13 @@
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap : 30px;
   align-items: center;
   padding-top: 30px;
   padding-bottom: 15px;
-  min-height : 80vh;
+  height : 80vh;
   box-sizing: border-box;
+  position: relative;
 }
 
 
@@ -22,7 +23,8 @@ form{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 50vh;
+  min-height: 300px;
+  gap : 20px;
 }
 
 .field{
@@ -40,12 +42,23 @@ input, select{
 
 input, input::placeholder, textarea, textarea::placeholder{
   font-family: 'Inter';
-  font-size: 16px;
+  font-size: 20px;
 }
 
+select{
+  font-size : 20px;
+}
 
 .area{
-  height: 120px;
+  height: 150px;
   border-radius: 5px;
   border : 1px solid black;
+}
+
+@media(min-width : 992px){
+  .backlogo{
+    position: absolute;
+    left: 20px;
+    top : 20px;
+  }
 }

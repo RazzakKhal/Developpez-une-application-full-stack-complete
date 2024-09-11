@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { snackBarFailConfiguration, SnackBarMessageEnum } from 'src/app/shared/helpers/material.helper';
 import { Article } from 'src/app/shared/models/Article';
 import { Comment } from 'src/app/shared/models/Comment';
 import { CreateComment } from 'src/app/shared/models/CreateComment';
@@ -22,7 +24,7 @@ export class GetArticleComponent implements OnInit {
   user! : User
 
   constructor(private activatedRoute : ActivatedRoute, private articleService : ArticleService, private authService : AuthService, private userService : UserService,
-    private commentService : CommentService
+    private commentService : CommentService, private snackBar : MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +36,11 @@ export class GetArticleComponent implements OnInit {
    this.articleService.getArticleById(this.activatedRoute.snapshot.params['id']).subscribe({
     next : (article) => {
       this.article = article
+    },
+    error : (err) => {
+      console.log(err)
+      snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_LOAD_ARTICLE)
+
     }
    })
   }
@@ -42,9 +49,15 @@ export class GetArticleComponent implements OnInit {
 
   getUser() {
     if (this.authService.isAuthenticate()) {
-    this.userService.getUser().subscribe((user : User) => {
-      this.user = user
-      })
+    this.userService.getUser().subscribe({
+      next: (user: User) => {
+        this.user = user
+      },
+      error: () => {
+        snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_GET_USER)
+
+      }
+    })
     }
   }
 
@@ -53,7 +66,9 @@ export class GetArticleComponent implements OnInit {
       const comment : CreateComment = new CreateComment(this.content, this.user.id, this.article.id)
       this.commentService.createComment(comment).subscribe({
        next : (item : Comment) => {this.article?.comments.push(item)},
-       error : () => {}
+       error : () => {
+        snackBarFailConfiguration(this.snackBar, SnackBarMessageEnum.FAIL_ADD_COMMENT)
+       }
       })
     }
 
