@@ -1,0 +1,21 @@
+<div class="container">
+  <img src="/assets/back.png" alt="go_back" class="backlogo" [routerLink]="['/articles']">
+  <h1>Créer un nouvel article</h1>
+  <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <select formControlName="theme">
+        <option value="" disabled selected>Sélectionner un thème</option>
+        <option *ngFor="let theme of themes" [ngValue]="theme.id">
+          {{ theme.name }}
+        </option>
+      </select>
+    </div>
+    <div class="field">
+      <input type="text" formControlName="title" placeholder="Titre de l'article">
+    </div>
+    <div class="field">
+      <textarea class="area" type="text" formControlName="content" placeholder="Contenu de l'article"></textarea>
+    </div>
+    <button class="submit-button bigger" type="submit">Créer</button>
+  </form>
+</div>

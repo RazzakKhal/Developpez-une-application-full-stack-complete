@@ -1,0 +1,21 @@
+.author-and-date{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card{
+  width : 100%;
+
+}
+
+.card p {
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.content{
+  text-overflow: ellipsis;
+
+}

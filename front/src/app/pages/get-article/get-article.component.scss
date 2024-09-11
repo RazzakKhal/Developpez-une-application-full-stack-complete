@@ -1,0 +1,155 @@
+
+.backlogo{
+  width : 40px;
+  align-self: flex-start;
+  position: absolute;
+  top: 10px;
+  left:15px;
+}
+
+.author-and-date-theme{
+  display: flex;
+  align-self: start;
+  justify-content: space-between;
+  width: 200px;
+  gap: 10px;
+}
+
+.theme{
+  align-self: start;
+}
+
+.desktop{
+  display: none;
+}
+
+.container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  min-height : calc(100vh - 12vh);
+  box-sizing: border-box;
+}
+
+.title{
+  padding-left: 5px;
+}
+
+
+.comments{
+  display : flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.comment{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.comments div .username{
+  align-self: flex-end;
+}
+
+textarea{
+  height: 110px;
+  border-radius:10px;
+}
+
+textarea::placeholder{
+  font-size: 20px;
+}
+
+.send{
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+
+.content{
+  align-self: flex-start;
+}
+
+textarea{
+  width: 100%;
+}
+///////////////////// MEDIA QUERIES
+///
+// penser à .mobile {display:none}
+
+@media(min-width:992px) {
+  .mobile{
+    display: none;
+  }
+
+  .desktop{
+    display: block;
+  }
+
+  .author-and-date-theme{
+    width: 300px;
+  }
+
+  .container{
+    padding-left: 80px;
+  }
+
+  .title{
+    align-self: flex-start;
+    padding-left: 0px;
+  }
+
+  .comment{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    width: 90%;
+  }
+
+  .comment-content{
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    width: 60%;
+    min-height: 80px;
+    padding: 10px;
+  }
+
+  .comments div .username{
+    align-self: flex-start;
+  }
+
+  .comments{
+    align-items: center;
+
+  }
+
+  .comments h2{
+    align-self: flex-start;
+  }
+
+  .textarea-and-arrow{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  textarea{
+    width: 90%;
+  }
+
+  .send{
+    right: 30px;
+    bottom:45px;
+  }
+
+}

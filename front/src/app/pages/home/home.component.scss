@@ -1,7 +1,45 @@
-.center {
-  height: 100vh;
+.container{
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 40vh;
+  padding-top: 100px;
+}
+
+.logo{
+  width: 300px;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height : 150px;
+}
+
+.whi{
+  color : black;
+  border: 1px solid black;
+  background-color: white;
+  font-weight: 400;
+}
+
+
+@media(min-width : 992px){
+  .buttons{
+    width: 350px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo{
+    width: 412px;
+    height: 238px;
+  }
+
+  .container{
+    height : 50vh;
+  }
 }
