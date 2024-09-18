@@ -15,6 +15,10 @@ public class ThemeController {
     @Autowired
     ThemeService themeService;
 
+    /**
+     * permet de récupérer tous les thèmes
+     * @return
+     */
     @GetMapping("")
     Map<String, List<ThemeDto>> getAllThemes(){
 

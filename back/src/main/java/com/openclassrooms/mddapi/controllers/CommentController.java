@@ -15,6 +15,11 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
+    /**
+     * permet de créer un commentaire
+     * @param createCommentDto
+     * @return
+     */
     @PostMapping("create")
    CommentDto postComment(@Valid @RequestBody CreateCommentDto createCommentDto){
     return commentService.postComment(createCommentDto);

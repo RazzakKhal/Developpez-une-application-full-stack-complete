@@ -19,6 +19,12 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    /**
+     * permet de mettre à jour les informations de l'utilisateur
+     * @param authentication
+     * @param updateUserDto
+     * @return
+     */
     @PutMapping("")
     Map<String,String> updateAnUser(Authentication authentication,@Valid @RequestBody RegisterUserDto updateUserDto){
         return userService.updateAnUser((User) authentication.getPrincipal(), updateUserDto);

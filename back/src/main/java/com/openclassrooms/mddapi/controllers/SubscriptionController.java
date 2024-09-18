@@ -17,10 +17,24 @@ public class SubscriptionController {
     @Autowired
     SubscriptionService subscriptionService;
 
+    /**
+     * permet de souscrire à un thème
+     * @param subscriptionDto
+     * @return
+     */
     @PostMapping("/create")
     UserDto createTheme(@Valid @RequestBody CreateSubscriptionDto subscriptionDto){
         return subscriptionService.createSubscription(subscriptionDto);
     }
+
+    /**
+     * permet de supprimer une souscription à un theme et vérifie que c'est bien le bon utilisateur
+     * qui tente de se désabonner
+     * @param userId
+     * @param themeId
+     * @param authentication
+     * @return
+     */
     @DeleteMapping("/delete/{userId}/{themeId}")
     UserDto deleteTheme(@PathVariable String userId, @PathVariable String themeId,  Authentication authentication){
         return subscriptionService.deleteSubscription(Long.valueOf(userId),Long.valueOf(themeId) , authentication);
